@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  osticket:
+    image: larueli/osticket-openshift
+    ports: 
+        - "80:8080"
+    depends_on:
+        - osticket_db
+    environment:
+      - IS_INSTALLED=yes
+    volumes:
+      - ./ost-config.php:/var/www/html/include/ost-config.php
+      - ./.htaccess:/var/www/html/.htaccess
+      - ./attachments:/var/www/html/attachments
+
+  osticket_db:
+    image: mariadb
+    environment:
+        - MYSQL_PASSWORD=abcdef
+        - MYSQL_DATABASE=osticket
+        - MYSQL_USER=osticket
+        - MYSQL_ROOT_PASSWORD=kjhgdfizgef
+    volumes:
+      - ./db-data:/var/lib/mysql
