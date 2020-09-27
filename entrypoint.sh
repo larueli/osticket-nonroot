@@ -6,7 +6,7 @@ fi
 
 if [ ! -z ${APACHE_SERVERNAME} ]
 then
-    sed -i "s/#ServerName www.example.com/ServerName ${APACHE_SERVERNAME}/" /etc/apache2/sites-available/000-default.conf
+    sed -i "s|#ServerName www.example.com|ServerName ${APACHE_SERVERNAME}|" /etc/apache2/sites-available/000-default.conf
 fi
 
 if [ -d /docker-entrypoint-init.d ]
