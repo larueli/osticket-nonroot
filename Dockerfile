@@ -20,7 +20,7 @@ COPY osTicket/plugins/* /var/www/html/include/plugins/
 COPY entrypoint.sh /entrypoint.sh
 
 RUN git clone https://github.com/clonemeagain/attachment_preview.git /var/www/html/include/plugins/attachment_preview && \
-    chgrp -R 0 /var/www && chmod g+rwx -R /var/www && chmod +x /entrypoint.sh
+    chgrp -R 0 /var/www && chmod g+rwx -R /var/www && chmod +x /entrypoint.sh && chgrp -R 0 /etc/apache2 && chmod g+rwx -R /etc/apache2
 
 EXPOSE 8080
 
