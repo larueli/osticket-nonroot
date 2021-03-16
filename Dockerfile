@@ -2,7 +2,7 @@ FROM php:7.4-apache
 
 COPY site.conf /etc/apache2/sites-available/000-default.conf
 COPY ports.conf /etc/apache2/ports.conf
-COPY osTicket/osTicket-v1.15.zip /osTicket.zip
+COPY osTicket/osTicket-v1.15.2.zip /osTicket.zip
 
 LABEL maintainer="ivann.laruelle@gmail.com"
 
