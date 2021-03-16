@@ -2,8 +2,9 @@ version: "3.8"
 services:
   osticket:
     image: larueli/osticket-openshift
+    restart: always
     ports: 
-        - "80:8080"
+        - "8080:8080"
     depends_on:
         - osticket_db
     environment:
@@ -15,6 +16,7 @@ services:
 
   osticket_db:
     image: mariadb
+    restart: always
     environment:
         - MYSQL_PASSWORD=abcdef
         - MYSQL_DATABASE=osticket
