@@ -6,7 +6,7 @@ COPY osTicket/osTicket-v1.15.2.zip /osTicket.zip
 
 LABEL maintainer="ivann.laruelle@gmail.com"
 
-ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     apt-get update && apt-get install -y vim rsync nano git zip unzip && \
