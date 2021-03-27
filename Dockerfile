@@ -17,6 +17,7 @@ RUN unzip /tmp/osTicket.zip -d /var/www/ && rm -rf /var/www/html && mv /var/www/
 
 COPY osTicket/languages/* /var/www/html/include/i18n/
 COPY osTicket/plugins/* /var/www/html/include/plugins/
+COPY .htaccess /var/www/html/
 
 RUN cp -r /var/www/html/include/i18n/* /tmp/i18n/ && \
     cp -r /var/www/html/include/plugins/* /tmp/plugins/ && \
