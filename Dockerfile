@@ -12,7 +12,7 @@ COPY check_install.sh /docker-entrypoint-init.d/
 COPY deploy.sh /docker-entrypoint-init.d/
 
 RUN unzip /tmp/osTicket.zip -d /var/www/ && rm -rf /var/www/html && mv /var/www/upload /var/www/html && \
-    unzip /tmp/attachment_preview.zip -d /tmp/ && mv attachment_preview-master /var/www/html/include/plugins/attachment_preview && \
+    unzip /tmp/attachment_preview.zip -d /tmp/ && mv /tmp/attachment_preview-master /var/www/html/include/plugins/attachment_preview && \
     mkdir /tmp/i18n && mkdir /tmp/plugins && chmod -R +x /docker-entrypoint-init.d
 
 COPY osTicket/languages/* /var/www/html/include/i18n/
