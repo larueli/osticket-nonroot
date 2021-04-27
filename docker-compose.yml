@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   osticket:
-    image: larueli/osticket-openshift:v1.15
+    image: larueli/osticket-nonroot:1.15
     restart: always
     ports: 
         - "8080:8080"
@@ -9,6 +9,7 @@ services:
         - osticket_db
     environment:
       - IS_INSTALLED=yes
+      - NEEDS_PATCH_REGISTER=yes
     volumes:
       - ./ost-config.php:/var/www/html/include/ost-config.php
       - ./.htaccess:/var/www/html/.htaccess
