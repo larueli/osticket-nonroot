@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   osticket:
-    image: larueli/osticket-nonroot:1.15
+    image: larueli/osticket-nonroot:v1.15
     restart: always
     ports: 
         - "8080:8080"
