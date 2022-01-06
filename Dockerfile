@@ -2,7 +2,7 @@ FROM larueli/php-base-image:7.4
 
 LABEL maintainer="ivann.laruelle@gmail.com"
 
-ARG OSTICKET_VERSION=1.15.2
+ARG OSTICKET_VERSION=1.15.4
 ENV OSTICKET_VERSION=${OSTICKET_VERSION}
 
 USER 0
