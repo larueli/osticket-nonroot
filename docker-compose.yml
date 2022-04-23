@@ -1,22 +1,21 @@
 version: "3.8"
 services:
-  osticket:
-    image: larueli/osticket-nonroot:v1.15
+  application:
+    image: larueli/osticket-nonroot:v1.16
     restart: always
-    ports: 
-        - "8080:8080"
+    ports:
+        - "8000:8080"
     depends_on:
-        - osticket_db
+        - database
     environment:
       - IS_INSTALLED=yes
-      - NEEDS_PATCH_REGISTER=yes
     volumes:
       - ./ost-config.php:/var/www/html/include/ost-config.php
       - ./.htaccess:/var/www/html/.htaccess
       - ./attachments:/var/www/html/attachments
 
-  osticket_db:
-    image: mariadb:10
+  database:
+    image: mariadb:10.6
     restart: always
     environment:
         - MYSQL_PASSWORD=abcdef
@@ -29,6 +28,6 @@ services:
   adminer:
     image: adminer
     #ports:
-    #- "8000:8080"
+    #- "8080:8080"
     environment:
       - ADMINER_DESIGN=lucas-sandery
